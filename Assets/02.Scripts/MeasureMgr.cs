@@ -36,7 +36,7 @@ public class MeasureMgr : MonoBehaviour
 
             GameObject marker = Instantiate(markerArrow,
                                             hit.Pose.position,
-                                            Quaternion.identity,
+                                            Quaternion.LookRotation(hit.Pose.up) ,
                                             anchor.transform);     
             //두번째 터치했을 경우              
             if (firstPos != Vector3.zero && tapCount == 2)
