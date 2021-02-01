@@ -33,7 +33,9 @@ public class HeroMgr : MonoBehaviour
         {
             anim.SetBool("IsTrace", true);
             //회전 
-            Quaternion rot = Quaternion.LookRotation(camTr.position - tr.position);
+            Vector3 pos = new Vector3(camTr.position.x, tr.position.y, camTr.position.z);
+
+            Quaternion rot = Quaternion.LookRotation(pos - tr.position);
             tr.rotation = Quaternion.Slerp(tr.rotation, rot, Time.deltaTime * 10.0f);
             //이동(전진)
             tr.Translate(Vector3.forward * Time.deltaTime * 0.2f);
