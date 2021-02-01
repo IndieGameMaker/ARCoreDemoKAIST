@@ -42,7 +42,7 @@ public class MeasureMgr : MonoBehaviour
             if (firstPos != Vector3.zero && tapCount == 2)
             {
                 //거리 계산 & 출력
-                lenText.text = Vector3.Distance(firstPos, hit.Pose.position).ToString("000.00");
+                lenText.text = Vector3.Distance(firstPos, hit.Pose.position).ToString("000.00") + " m";
             }
             firstPos = hit.Pose.position;                       
         }
@@ -55,6 +55,7 @@ public class MeasureMgr : MonoBehaviour
         {
             Destroy(_marker);
         }
+        lenText.text = "0.0 m";
         firstPos = Vector3.zero;
         tapCount = 0;
     }
