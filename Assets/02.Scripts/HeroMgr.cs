@@ -23,11 +23,12 @@ public class HeroMgr : MonoBehaviour
 
         if (distance <= 0.25f)
         {
-            Debug.Log("Attack");
+            anim.SetBool("IsAttack", true);
         }
 
         if (distance > 0.2f)
         {
+            anim.SetBool("IsTrace", true);
             //회전 
             Quaternion rot = Quaternion.LookRotation(camTr.position - tr.position);
             tr.rotation = Quaternion.Slerp(tr.rotation, rot, Time.deltaTime * 10.0f);
