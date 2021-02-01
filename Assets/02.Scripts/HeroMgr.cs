@@ -39,8 +39,14 @@ public class HeroMgr : MonoBehaviour
             tr.Translate(Vector3.forward * Time.deltaTime * 0.2f);
         }
 
+        //스크린좌표(x,y) -> Ray
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         Debug.DrawRay(ray.origin, ray.direction * 2.0f, Color.green);
+
+        if (Physics.Raycast(ray, out hit, 2.0f, 1<<8))
+        {
+            anim.SetTrigger("Hit");
+        }
 
     }
 }
