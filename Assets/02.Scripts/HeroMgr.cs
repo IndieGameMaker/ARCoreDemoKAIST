@@ -8,6 +8,9 @@ public class HeroMgr : MonoBehaviour
     private Transform tr;
     private Animator anim;
 
+    private Ray ray;
+    private RaycastHit hit;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,5 +38,9 @@ public class HeroMgr : MonoBehaviour
             //이동(전진)
             tr.Translate(Vector3.forward * Time.deltaTime * 0.2f);
         }
+
+        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Debug.DrawRay(ray.origin, ray.direction * 2.0f, Color.green);
+
     }
 }
