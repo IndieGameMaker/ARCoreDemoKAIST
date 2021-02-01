@@ -43,7 +43,7 @@ public class HeroMgr : MonoBehaviour
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         Debug.DrawRay(ray.origin, ray.direction * 2.0f, Color.green);
 
-        if (Physics.Raycast(ray, out hit, 2.0f, 1<<8))
+        if (Input.GetMouseButtonDown(0) && Physics.Raycast(ray, out hit, 2.0f, 1<<8))
         {
             anim.SetTrigger("Hit");
         }
